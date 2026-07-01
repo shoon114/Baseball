@@ -22,8 +22,13 @@ public:
 		}
 		
 		GuessResult result = { 0 };
-		for (int i = 0; i < question.length(); i++) {
-			if (guessNumber[i] == question[i]) {
+		for (int i = 0; i < guessNumber.length(); i++) {
+			for (int j = 0; j < question.length(); j++) {
+				if (guessNumber[i] != question[j]) continue;
+				if (i != j) {
+					result.balls++;
+					continue;
+				}
 				result.strikes++;
 			}
 		}
