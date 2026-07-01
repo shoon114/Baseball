@@ -9,13 +9,7 @@ class BaseballFixture : public Test {
 public:
 	Baseball game{ "123" };
 	void assertIllegalArgument(string guessNumber) {
-		try {
-			game.guess(guessNumber);
-			FAIL();
-		}
-		catch (exception e) {
-			//PASS
-		}
+		EXPECT_THROW(game.guess(guessNumber), exception);;
 	};
 };
 
