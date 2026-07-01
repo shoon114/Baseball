@@ -20,10 +20,15 @@ public:
 		if (guessNumber == question) {
 			return { true, 3, 0 };
 		}
-		else if (guessNumber == "143") {
-			return { false, 2, 0 };
+		
+		GuessResult result = { 0 };
+		for (int i = 0; i < question.length(); i++) {
+			if (guessNumber[i] == question[i]) {
+				result.strikes++;
+			}
 		}
-		return { false, 0, 0 };
+
+		return result;
 	}
 
 	void assertIllegalArgument(const std::string& guessNumber)
